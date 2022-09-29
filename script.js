@@ -1,4 +1,6 @@
 // Importing Module
+
+// Native ES6 Modeule Pattern
 // import { addToCart, cart, totalPrice as price, tq} from './shoppingCart.js'
 // console.log('Importing Module')
 
@@ -17,8 +19,9 @@
 // import add from './shoppingCart.js';
 // add('Apple', 10);
 
-// Old way of writing module pattern
 
+// Old way of writing module pattern
+// Module Pattern
 const ShoppingCart2 = (function () {
   const cart = [];
   const shoppingCart = 10;
