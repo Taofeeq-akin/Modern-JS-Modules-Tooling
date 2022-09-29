@@ -19,5 +19,9 @@
   "dependencies": {
     "leaflet": "^1.9.1",
     "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0",
+    "parcel-bundler": "^1.12.5"
   }
 }

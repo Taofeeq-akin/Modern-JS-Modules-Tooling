@@ -53,7 +53,7 @@ console.log(ShoppingCart2.shoppingCart) // Undefine cus its private
 */
 
 // To import from loadash
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from '/node_modules/lodash-es/cloneDeep.js';
 
 const state = {
   cart: [
