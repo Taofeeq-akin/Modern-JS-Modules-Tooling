@@ -1,0 +1,23 @@
+{
+  "name": "modern-js-modules-tooling",
+  "version": "1.0.0",
+  "description": "making connnection between modules",
+  "main": "clean.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taofeeq-akin/Modern-JS-Modules-Tooling.git"
+  },
+  "author": "Taofeeq-akin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taofeeq-akin/Modern-JS-Modules-Tooling/issues"
+  },
+  "homepage": "https://github.com/Taofeeq-akin/Modern-JS-Modules-Tooling#readme",
+  "dependencies": {
+    "leaflet": "^1.9.1",
+    "lodash-es": "^4.17.21"
+  }
+}
