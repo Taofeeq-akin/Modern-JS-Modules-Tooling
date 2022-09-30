@@ -4,7 +4,8 @@
   "description": "making connnection between modules",
   "main": "clean.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,13 @@
   },
   "homepage": "https://github.com/Taofeeq-akin/Modern-JS-Modules-Tooling#readme",
   "dependencies": {
+    "core-js": "^3.25.3",
     "leaflet": "^1.9.1",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
-    "parcel": "^2.7.0",
+    "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.5"
   }
 }

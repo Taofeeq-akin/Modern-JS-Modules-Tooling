@@ -53,7 +53,8 @@ console.log(ShoppingCart2.shoppingCart) // Undefine cus its private
 */
 
 // To import from loadash
-import cloneDeep from '/node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash-es';
 
 const state = {
   cart: [
@@ -71,6 +72,14 @@ stateClone.user.loggedIn = false;
 console.log(stateClone);
 console.log(stateDeepClone);
 
+// Hot module replacement
 if (module.hot) {
   module.hot.accept(); // this will prevent our page from reloading after save and its a function understood by parcel alone
 }
+
+// Transpiling and Polyfilling
+// importing babel library
+import 'core-js/stable';
+
+// Polifying async functions
+import 'regenerator-runtime/runtime';
