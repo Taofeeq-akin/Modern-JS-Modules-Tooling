@@ -9,41 +9,41 @@ const budget = [
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
 ];
 
-const limits = {
+const spendingLimits = {
   jonas: 1500,
   matilda: 100,
 };
 
-const add = function (value, description, user) {
+const addEpenses = function (value, description, user) {
   if (!user) user = 'jonas';
   user = user.toLowerCase();
 
-  let lim;
-  if (limits[user]) {
-    lim = limits[user];
+  let limit;
+  if (spendingLimits[user]) {
+    limit = spendingLimits[user];
   } else {
-    lim = 0;
+    limit = 0;
   }
 
-  if (value <= lim) {
+  if (value <= limit) {
     budget.push({ value: -value, description: description, user: user });
   }
 };
-add(10, 'Pizza 🍕');
-add(100, 'Going to movies 🍿', 'Matilda');
-add(200, 'Stuff', 'Jay');
+addEpenses(10, 'Pizza 🍕');
+addEpenses(100, 'Going to movies 🍿', 'Matilda');
+addEpenses(200, 'Stuff', 'Jay');
 console.log(budget);
 
 const check = function () {
   for (const el of budget) {
-    let lim;
-    if (limits[el.user]) {
-      lim = limits[el.user];
+    let limit;
+    if (spendingLimits[el.user]) {
+      limit = spendingLimits[el.user];
     } else {
-      lim = 0;
+      limit = 0;
     }
 
-    if (el.value < -lim) {
+    if (el.value < -limit) {
       el.flag = 'limit';
     }
   }
