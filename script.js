@@ -1,5 +1,5 @@
 // Importing Module
-
+/*
 // Native ES6 Modeule Pattern
 import { addToCart, cart, totalPrice as price, tq } from './shoppingCart.js';
 // console.log('Importing Module')
@@ -18,7 +18,7 @@ console.log(ShoppingCart.totalPrice);
 
 import add from './shoppingCart.js';
 add('Apple', 10);
-
+*/
 /*
 // Old way of writing module pattern
 // Module Pattern
@@ -51,7 +51,7 @@ ShoppingCart2.addToCart('Bread', 5)
 console.log(ShoppingCart2)
 console.log(ShoppingCart2.shoppingCart) // Undefine cus its private
 */
-
+/*
 // To import from loadash
 // import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
 import cloneDeep from 'lodash-es';
@@ -83,3 +83,4 @@ import 'core-js/stable';
 
 // Polifying async functions
 import 'regenerator-runtime/runtime';
+*/
