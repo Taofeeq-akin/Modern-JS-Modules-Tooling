@@ -18,12 +18,15 @@ const addEpenses = function (value, description, user) {
   if (!user) user = 'jonas';
   user = user.toLowerCase();
 
-  let limit;
-  if (spendingLimits[user]) {
-    limit = spendingLimits[user];
-  } else {
-    limit = 0;
-  }
+  // let limit;
+  // if (spendingLimits[user]) {
+  //   limit = spendingLimits[user];
+  // } else {
+  //   limit = 0;
+  // }
+
+  // Ternary insted of if statement
+  const limit = spendingLimits[user] ? spendingLimits[user] : 0;
 
   if (value <= limit) {
     budget.push({ value: -value, description: description, user: user });
