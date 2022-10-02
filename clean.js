@@ -20,7 +20,7 @@ const spendingLimits = Object.freeze({
 // spendingLimits.jay = 400;
 // console.log(spendingLimits)
 
-const getLimit = user => spendingLimits?.[user] ?? 0;
+const getLimit = (limits, user) => spendingLimits?.[user] ?? 0;
 
 // Pure function
 const addEpenses = function (
@@ -42,37 +42,34 @@ const addEpenses = function (
   // Ternary insted of if statement
   // const limit = getLimit(cleanUser);
 
-  return value <= getLimit(cleanUser)
+  return value <= getLimit(limits, cleanUser)
     ? [...state, { value: -value, description, user: cleanUser }]
     : state;
 
   // budget.push({ value: -value, description, user: cleanUser }); // This wont work again cus we cant budget array is noe immutable
 };
 const budget1 = addEpenses(budget, spendingLimits, 10, 'Pizza 🍕');
-const budget2 = addEpenses(budget1, spendingLimits, 100, 'Going to movies 🍿', 'Matilda');
+const budget2 = addEpenses(
+  budget1,
+  spendingLimits,
+  100,
+  'Going to movies 🍿',
+  'Matilda'
+);
 const budget3 = addEpenses(budget2, spendingLimits, 200, 'Stuff', 'Jay');
 console.log(budget1);
 console.log(budget2);
-console.log(budget3)
+console.log(budget3);
 
-const checkExpenses = function () {
-  for (const entry of budget) {
-    // let limit;
-    // if (spendingLimits[entry.user]) {
-    //   limit = spendingLimits[el.user];
-    // } else {
-    //   limit = 0;
-    // }
-    // const limit = spendingLimits[entry.user] ? spendingLimits[entry.user] : 0;
-
-    if (entry.value < -getLimit(entry.user)) {
-      entry.flag = 'limit';
-    }
-  }
+const checkExpenses = function (state, limits) {
+  return state.map(entry => {
+    return entry.value < -getLimit(limits, entry.user)
+      ? { ...entry, flag: 'limit' }
+      : entry;
+  });
 };
-checkExpenses();
-
-console.log(budget);
+const finalBudget = checkExpenses(budget3);
+console.log(finalBudget);
 
 const bigExpenses = function (bigLimit) {
   let output = '';
