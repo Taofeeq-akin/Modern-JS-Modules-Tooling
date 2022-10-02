@@ -1,4 +1,6 @@
-const budget = [
+'strict mode';
+
+const budget = Object.freeze([
   { value: 250, description: 'Sold old TV 📺', user: 'jonas' },
   { value: -45, description: 'Groceries 🥑', user: 'jonas' },
   { value: 3500, description: 'Monthly salary 👩‍💻', user: 'jonas' },
@@ -7,18 +9,28 @@ const budget = [
   { value: -20, description: 'Candy 🍭', user: 'matilda' },
   { value: -125, description: 'Toys 🚂', user: 'matilda' },
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
-];
+]);
 
-const spendingLimits = {
+// Using Object.freeze to make the function immutable
+const spendingLimits = Object.freeze({
   jonas: 1500,
   matilda: 100,
-};
+});
+
+// spendingLimits.jay = 400;
+// console.log(spendingLimits)
 
 const getLimit = user => spendingLimits?.[user] ?? 0;
 
-const addEpenses = function (value, description, user) {
-  if (!user) user = 'jonas';
-  user = user.toLowerCase();
+// Pure function
+const addEpenses = function (
+  state,
+  limits,
+  value,
+  description,
+  user = 'jonas'
+) {
+  const cleanUser = user.toLowerCase();
 
   // let limit;
   // if (spendingLimits[user]) {
@@ -28,15 +40,19 @@ const addEpenses = function (value, description, user) {
   // }
 
   // Ternary insted of if statement
-  const limit = getLimit(user)
+  // const limit = getLimit(cleanUser);
 
-  if (value <= limit) {
-    budget.push({ value: -value, description, user });
-  }
+  return value <= getLimit(cleanUser)
+    ? [...state, { value: -value, description, user: cleanUser }]
+    : state;
+
+  // budget.push({ value: -value, description, user: cleanUser }); // This wont work again cus we cant budget array is noe immutable
 };
-addEpenses(10, 'Pizza 🍕');
-addEpenses(100, 'Going to movies 🍿', 'Matilda');
-addEpenses(200, 'Stuff', 'Jay');
+const budget1 = addEpenses(budget, spendingLimits, 10, 'Pizza 🍕');
+console.log(budget1);
+
+addEpenses(budget, spendingLimits, 100, 'Going to movies 🍿', 'Matilda');
+addEpenses(budget, spendingLimits, 200, 'Stuff', 'Jay');
 console.log(budget);
 
 const checkExpenses = function () {
@@ -48,7 +64,6 @@ const checkExpenses = function () {
     //   limit = 0;
     // }
     // const limit = spendingLimits[entry.user] ? spendingLimits[entry.user] : 0;
-
 
     if (entry.value < -getLimit(entry.user)) {
       entry.flag = 'limit';
@@ -62,7 +77,8 @@ console.log(budget);
 const bigExpenses = function (bigLimit) {
   let output = '';
   for (const entry of budget) {
-    output += entry.value <= -bigLimit ? `${entry.description.slice(-2)}  / ` : '';
+    output +=
+      entry.value <= -bigLimit ? `${entry.description.slice(-2)}  / ` : '';
     // if (entry.value <= -bigLimit) {
     //   output += entry.description.slice(-2) + ' / '; // Emojis are 2 chars
     // }
@@ -71,4 +87,4 @@ const bigExpenses = function (bigLimit) {
   console.log(output);
 };
 
-bigExpenses(20)
+bigExpenses(20);
