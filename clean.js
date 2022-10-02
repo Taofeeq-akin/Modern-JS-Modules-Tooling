@@ -49,11 +49,11 @@ const addEpenses = function (
   // budget.push({ value: -value, description, user: cleanUser }); // This wont work again cus we cant budget array is noe immutable
 };
 const budget1 = addEpenses(budget, spendingLimits, 10, 'Pizza 🍕');
+const budget2 = addEpenses(budget1, spendingLimits, 100, 'Going to movies 🍿', 'Matilda');
+const budget3 = addEpenses(budget2, spendingLimits, 200, 'Stuff', 'Jay');
 console.log(budget1);
-
-addEpenses(budget, spendingLimits, 100, 'Going to movies 🍿', 'Matilda');
-addEpenses(budget, spendingLimits, 200, 'Stuff', 'Jay');
-console.log(budget);
+console.log(budget2);
+console.log(budget3)
 
 const checkExpenses = function () {
   for (const entry of budget) {
