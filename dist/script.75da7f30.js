@@ -50497,7 +50497,7 @@ console.log(stateDeepClone); // Hot module replacement
 
 if (module.hot) {
   module.hot.accept(); // this will prevent our page from reloading after save and its a function understood by parcel alone
-} // Transpiling and Polyfilling
+} // Transpiling and Polyfilling: use in transfering code to be able  to work on browser below ES6
 // importing babel library
 },{"./shoppingCart.js":"shoppingCart.js","lodash-es":"node_modules/lodash-es/lodash.js","core-js/stable":"node_modules/core-js/stable/index.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

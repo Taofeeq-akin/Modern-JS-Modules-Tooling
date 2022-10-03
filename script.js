@@ -77,9 +77,10 @@ if (module.hot) {
   module.hot.accept(); // this will prevent our page from reloading after save and its a function understood by parcel alone
 }
 
-// Transpiling and Polyfilling
+// Transpiling and Polyfilling: use in transfering code to be able  to work on browser below ES6
 // importing babel library
 import 'core-js/stable';
 
+// We have to install this before using
 // Polifying async functions
 import 'regenerator-runtime/runtime';
