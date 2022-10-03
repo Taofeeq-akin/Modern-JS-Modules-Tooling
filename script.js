@@ -79,6 +79,7 @@ if (module.hot) {
 
 // Transpiling and Polyfilling
 // importing babel library
+import 'core-js/stable';
 
 // Polifying async functions
 import 'regenerator-runtime/runtime';
