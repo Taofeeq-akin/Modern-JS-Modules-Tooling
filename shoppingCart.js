@@ -2,6 +2,7 @@
 console.log('Exporting Module');
 
 export const cart = [];
+
 export const addToCart = function (product, quantity) {
   cart.push(product, quantity);
   console.log(`${quantity} ${product} is added to Cart`);
